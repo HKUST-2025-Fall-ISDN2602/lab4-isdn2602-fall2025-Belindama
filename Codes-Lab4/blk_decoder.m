@@ -18,23 +18,23 @@ S = mod(sum(codeword(ind)),2);
 msgblk = codeword(1:4);
 
 % compute syndrome bits
-% S = zeros(1,4);
-% S(1) = rem(sum(codeword([1 2 5])),2);
-% S(2) = rem(sum(codeword([3 4 6])),2);
-% S(3) = rem(sum(codeword([1 3 7])),2);
-% S(4) = rem(sum(codeword([2 4 8])),2);
+%S = zeros(1,4);
+%S(1) = rem(sum(codeword([1 2 5])),2);
+%S(2) = rem(sum(codeword([3 4 6])),2);
+%S(3) = rem(sum(codeword([1 3 7])),2);
+%S(4) = rem(sum(codeword([2 4 8])),2);
 % 
 % % check for one bit errors in the message block only
 % % There are four possible one bit errors in the message block
 % 
 % % Modify the code below
-if (S(1)==1)
+if isequal (S, [1 0 1 0])
    msgblk(1)=not(msgblk(1));%when one bit error is in msgblk(1)
-elseif (S(2)==1)
+elseif isequal (S, [1 0 0 1])
    msgblk(2)=not(msgblk(2));%when one bit error is in msgblk(2)
-elseif (S(3)==1)
+elseif isequal (S, [0 1 1 0])
    msgblk(3)=not(msgblk(3));%when one bit error is in msgblk(3)
-elseif (S(4)==1)
+elseif isequal (S, [0 1 0 1])
    msgblk(4)=not(msgblk(4));%when one bit error is in msgblk(4)
 end
 
