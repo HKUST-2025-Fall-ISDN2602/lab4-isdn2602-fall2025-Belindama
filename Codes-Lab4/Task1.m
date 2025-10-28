@@ -5,18 +5,19 @@ addpath("library_p\");
 
 % Load the input image
 lorem_img = imread('lorem_img.png');
+rotated_img = transpose(lorem_img);
  
 % display the raw image
 figure(1); clf;
-imshow(lorem_img);
+imshow(rotated_img);
 title('Original image');
 
 % run-length encode
-run_length_code = runlength_encode(lorem_img);
+run_length_code = runlength_encode(rotated_img);
 % convert the binary array into an decimal array of run lengths
 runs = bin2decArray(run_length_code);
 
-size_raw_data = length(lorem_img(:))
+size_raw_data = length(rotated_img(:))
 size_run_length = length(run_length_code)
 
 size_huffman = [];
